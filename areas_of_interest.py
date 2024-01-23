@@ -1,4 +1,4 @@
-class ImgLine:
+class ImgPixel:
     pass
 
 
@@ -20,18 +20,18 @@ The existing functions can't be altered.
 
 
 def identify_areas_of_interest_A(
-    img_lines: list[ImgLine],
+    img_pixels: list[ImgPixel],
     img_dims: ImgDims,
-    max_pixel_val: float,
     min_pixel_val: float,
-) -> list[list[ImgLine]]:
+    max_pixel_val: float,
+) -> list[ImgPixel]:
     """
     Parameters
     ----------
     img_pixels: list[ImgPixel]
         Image to be segmented as a 1D list of `ImgPixel`s. An `ImgPixel` contains the
         R, G, B values of a pixel, and an integer indicating what area of interest the
-        pixel is in. In teh given image, every pixel should be in area 0.
+        pixel is in. In the given image, every pixel should be in area 0 (i.e. the whole image).
     img_dims: ImgDims
         Height and width of image.
     min_pixel_val: float
@@ -69,8 +69,7 @@ def identify_areas_of_interest_B(
     Returns
     -------
     list[(int, int, int, int)]
-        Each element is a tuple of four values that index the arrays passed to the
-        function, and define an area of interest like so:
+        Each element is a tuple of four values that defines an area of interest like so:
             (top_left_x, top_left_y, bottom_right_x, bottom_right_y)
     """
 
